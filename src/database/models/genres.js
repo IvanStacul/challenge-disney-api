@@ -1,16 +1,11 @@
 module.exports = (sequelize, type) => {
-    return sequelize.define("movie", {
+    return sequelize.define("genre", {
         id: {
             type: type.BIGINT(20),
             primaryKey: true,
             autoIncrement: true,
         },
-        title: type.STRING,
+        name: type.STRING,
         image: type.STRING,
-        releaseDate: {
-            field: "release_date",
-            type: type.DATEONLY,
-        },
-        rating: type.INTEGER,
     });
 };

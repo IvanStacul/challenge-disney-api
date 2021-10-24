@@ -1,0 +1,22 @@
+{
+  "name": "disney-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Stacul, Ivan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.14"
+  }
+}

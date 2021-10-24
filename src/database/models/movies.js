@@ -5,7 +5,10 @@ module.exports = (sequelize, type) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        title: type.STRING,
+        title: {
+            type: type.STRING,
+            allowNull: false,
+        },
         image: type.STRING,
         releaseDate: {
             field: "release_date",

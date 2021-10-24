@@ -5,8 +5,14 @@ module.exports = (sequelize, type) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        name: type.STRING,
-        image: type.STRING,
+        name: {
+            type: type.STRING,
+            allowNull: false,
+        },
+        image: {
+            type: type.STRING,
+            allowNull: false,
+        },
         age: type.INTEGER,
         history: type.TEXT,
         weight: type.FLOAT,

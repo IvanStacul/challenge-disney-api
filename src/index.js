@@ -1,6 +1,8 @@
 // require modules
 const express = require("express");
 
+const apiRouter = require("./routes/api");
+
 // config server
 const app = express();
 const port = 3000;
@@ -11,9 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 require("./database/config/db");
 
 // urls
-app.get("/", function (req, res) {
-    res.send("Hello World");
-});
+app.use("/api/v1", apiRouter);
 
 // start server
 app.listen(port, () => {

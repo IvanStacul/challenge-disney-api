@@ -3,7 +3,9 @@ const router = require("express").Router();
 const { Movie } = require("../../database/config/tables");
 
 router.get("/", async (req, res) => {
-    const movies = await Movie.findAll();
+    const movies = await Movie.findAll({
+        attributes: ["title", "image", "releaseDate"],
+    });
     res.json(movies);
 });
 

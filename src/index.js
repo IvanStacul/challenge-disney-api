@@ -1,7 +1,7 @@
 // require modules
 const express = require("express");
 
-const apiRouter = require("./routes/api");
+const apiRouter = require("./routes/apiRouter");
 
 // config server
 const app = express();

@@ -17,21 +17,32 @@ router.post(
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array() });
+            return res
+                .status(400)
+                .json({
+                    status: "fail",
+                    data: [],
+                    message: "Body params invalid.",
+                    errors: errors.array(),
+                });
         }
 
         try {
             req.body.password = bcrypt.hashSync(req.body.password, 10);
             const user = await User.create(req.body);
             res.status(201).json({
+                status: "success",
+                data: user,
                 message: "User created.",
                 errors: [],
-                user: user,
             });
         } catch (error) {
             console.log(error);
             res.status(422).json({
-                message: "User not created. " + error.message,
+                status: "fail",
+                data: [],
+                message: "User not created.",
+                error: error.message,
             });
         }
     }
@@ -43,17 +54,21 @@ router.post("/login", async (req, res) => {
     if (user) {
         const isEqual = bcrypt.compareSync(req.body.password, user.password);
         if (isEqual) {
-            res.json({
+            res.status(200).json({
+                status: "success",
+                data: [],
                 message: "Login success",
                 errors: [],
                 token: createToken(user),
             });
-        } else {
-            res.json({ errors: { msg: "User/Password incorrect." } });
         }
-    } else {
-        res.json({ errors: { msg: "User/Password incorrect." } });
     }
+    res.status(401).json({
+        status: "fail",
+        data: [],
+        message: "Incorrect username or password.",
+        errors: [],
+    });
 });
 
 const createToken = (user) => {

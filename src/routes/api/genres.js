@@ -4,26 +4,37 @@ const { Genre } = require("../../database/config/tables");
 
 router.get("/", async (req, res) => {
     const genres = await Genre.findAll();
-    res.json(genres);
+    res.status(200).json(genres);
 });
 
 router.post("/", async (req, res) => {
-    const movie = await Genre.create(req.body);
-    res.json(movie);
+    const genre = await Genre.create(req.body);
+    res.status(201).json({
+        status: "success",
+        data: genre,
+        message: "Successfully created resource",
+    });
 });
 
 router.put("/:genreId", async (req, res) => {
+    let genreId = req.params.genreId
     await Genre.update(req.body, {
-        where: { id: req.params.genreId },
+        where: { id: genreId },
     });
-    res.json({ success: "Genre updated." });
+    res.status(200).json({
+        status: "success",
+        data: await Genre.findOne({
+            where: { id: genreId },
+        }),
+        message: `Successfully updated resource with id ${genreId}`
+    });
 });
 
 router.delete("/:genreId", async (req, res) => {
     await Genre.destroy({
         where: { id: req.params.genreId },
     });
-    res.json({ success: "Genre deleted." });
+    res.status(204).send();
 });
 
 module.exports = router;

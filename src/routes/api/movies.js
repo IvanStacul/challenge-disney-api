@@ -37,21 +37,32 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const movie = await Movie.create(req.body);
-    res.json(movie);
+    res.status(201).json({
+        status: "success",
+        data: movie,
+        message: "Successfully created resource",
+    });
 });
 
 router.put("/:movieId", async (req, res) => {
+    let movieId = req.params.movieId;
     await Movie.update(req.body, {
-        where: { id: req.params.movieId },
+        where: { id: movieId },
     });
-    res.json({ success: "Movie updated." });
+    res.status(200).json({
+        status: "success",
+        data: await Movie.findOne({
+            where: { id: movieId },
+        }),
+        message: `Successfully updated resource with id ${movieId}`
+    });
 });
 
 router.delete("/:movieId", async (req, res) => {
     await Movie.destroy({
         where: { id: req.params.movieId },
     });
-    res.json({ success: "Movie deleted." });
+    res.status(204).send();
 });
 
 module.exports = router;

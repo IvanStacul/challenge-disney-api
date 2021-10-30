@@ -59,26 +59,41 @@ router.get("/", async (req, res) => {
         });
     }
 
-    res.status(200).json(response);
+    res.status(200).json({
+        status: "success",
+        data: response,
+        message: "",
+    });
 });
 
 router.post("/", async (req, res) => {
-    const movie = await Character.create(req.body);
-    res.json(movie);
+    const character = await Character.create(req.body);
+    res.status(201).json({
+        status: "success",
+        data: character,
+        message: "Successfully created resource",
+    });
 });
 
 router.put("/:characterId", async (req, res) => {
+    let characterId = req.params.characterId
     await Character.update(req.body, {
-        where: { id: req.params.characterId },
+        where: { id: characterId },
     });
-    res.json({ success: "Character updated." });
+    res.status(200).json({
+        status: "success",
+        data: await Character.findOne({
+            where: { id: characterId },
+        }),
+        message: `Successfully updated resource with id ${characterId}`
+    });
 });
 
 router.delete("/:characterId", async (req, res) => {
     await Character.destroy({
         where: { id: req.params.characterId },
     });
-    res.json({ success: "Character deleted." });
+    res.status(204).send();
 });
 
 module.exports = router;

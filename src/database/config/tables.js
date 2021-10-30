@@ -12,8 +12,8 @@ const Genre = GenreModel(db, Sequelize);
 const User = UserModel(db, Sequelize);
 
 //relations
-Movie.belongsToMany(Character, {through: 'movie_character'});
-Character.belongsToMany(Movie, {through: 'movie_character'});
+Movie.belongsToMany(Character, {through: 'movie_character', as: "characters"});
+Character.belongsToMany(Movie, {through: 'movie_character', as: "movies"});
 Movie.belongsTo(Genre);
 Genre.hasMany(Movie);
 

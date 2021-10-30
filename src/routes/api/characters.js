@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
-const { Character } = require("../../database/config/tables");
+const { Character, Movie, Genre } = require("../../database/config/tables");
+const characters = require("../../database/models/characters");
 
 router.get("/", async (req, res) => {
     let query = req.query;
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
             attributes: ["name", "image"],
         });
     } else if (query.age) {
-        responseCharacter = await Character.findAll({
+        response = await Character.findAll({
             where: {
                 age: query.age,
             },
@@ -31,14 +32,12 @@ router.get("/", async (req, res) => {
             attributes: ["name", "image"],
         });
     } else if (query.movies) {
-        responseCharacter = await Character.findAll({
+        response = await Character.findAll({
             attributes: ["name", "image"],
             include: [
                 {
                     model: Movie,
-                    through: {
-                        attributes: [],
-                    },
+                    as: "movies",
                     where: {
                         id: query.movies,
                     },
@@ -66,8 +65,42 @@ router.get("/", async (req, res) => {
     });
 });
 
+router.get("/:characterId/detail", async (req, res) => {
+    let Characters = await Character.findByPk(req.params.characterId, {
+        include: [
+            {
+                model: Movie,
+                as: "movies",
+                attributes: ["title", "image", "releaseDate", "rating"],
+                include: [
+                    {
+                        model: Genre,
+                        attributes: ["name"],
+                    },
+                ],
+                through: { attributes: [] },
+            },
+        ],
+    });
+    res.status(200).json({
+        status: "success",
+        data: Characters,
+        message: "",
+    });
+});
+
 router.post("/", async (req, res) => {
-    const character = await Character.create(req.body);
+    const { image, name, age, weight, history, movieId } = req.body;
+    const character = await Character.create({
+        image,
+        name,
+        age,
+        weight,
+        history,
+    });
+    if (movieId) {
+        character.addMovie([movieId]);
+    }
     res.status(201).json({
         status: "success",
         data: character,
@@ -76,16 +109,24 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:characterId", async (req, res) => {
-    let characterId = req.params.characterId
-    await Character.update(req.body, {
-        where: { id: characterId },
-    });
+    let characterId = req.params.characterId;
+    const { image, name, age, weight, history, movieId } = req.body;
+    let character = Character.findByPk(characterId);
+    await Character.update(
+        { name, image, age, weight, history },
+        { where: { id: characterId } }
+    );
+    console.log("Resu");
+    console.log(s);
+    if (movieId) {
+        character.addMovies([movieId]);
+    }
     res.status(200).json({
         status: "success",
         data: await Character.findOne({
             where: { id: characterId },
         }),
-        message: `Successfully updated resource with id ${characterId}`
+        message: `Successfully updated resource with id ${characterId}`,
     });
 });
 

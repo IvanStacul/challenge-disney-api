@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
 const { Character, Movie, Genre } = require("../../database/config/tables");
-const characters = require("../../database/models/characters");
 
 router.get("/", async (req, res) => {
     let query = req.query;
@@ -82,11 +81,19 @@ router.get("/:characterId/detail", async (req, res) => {
             },
         ],
     });
-    res.status(200).json({
-        status: "success",
-        data: Characters,
-        message: "",
-    });
+    if (Characters) {
+        res.status(200).json({
+            status: "success",
+            data: Characters,
+            message: "",
+        });
+    } else {
+        res.status(404).json({
+            status: "fail",
+            data: [],
+            message: "The character don't exist.",
+        });
+    }
 });
 
 router.post("/", async (req, res) => {
@@ -111,16 +118,14 @@ router.post("/", async (req, res) => {
 router.put("/:characterId", async (req, res) => {
     let characterId = req.params.characterId;
     const { image, name, age, weight, history, movieId } = req.body;
-    let character = Character.findByPk(characterId);
+    // let character = Character.findByPk(characterId);
     await Character.update(
         { name, image, age, weight, history },
         { where: { id: characterId } }
     );
-    console.log("Resu");
-    console.log(s);
-    if (movieId) {
-        character.addMovies([movieId]);
-    }
+    // if (movieId) {
+    //     character.addMovies([movieId]);
+    // }
     res.status(200).json({
         status: "success",
         data: await Character.findOne({

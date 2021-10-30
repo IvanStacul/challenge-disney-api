@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
-const { Movie } = require("../../database/config/tables");
+const { Movie, Genre, Character } = require("../../database/config/tables");
 
 router.get("/", async (req, res) => {
     let movies;
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
     } else if (query.genre) {
         movies = await Movie.findAll({
             where: {
-                GenreId: query.genre,
+                genreId: query.genre,
             },
         });
     } else if (query.order) {
@@ -35,8 +35,33 @@ router.get("/", async (req, res) => {
     res.status(200).json(movies);
 });
 
+router.get("/:movieId/detail", async (req, res) => {
+    let movies = await Movie.findByPk(req.params.movieId, {
+        include: [
+            {
+                model: Character,
+                as: "characters",
+                attributes: ["name", "age", "image"],
+                through: { attributes: [] },
+            },
+        ],
+    });
+    res.status(200).json({
+        status: "success",
+        data: movies,
+        message: "",
+    });
+});
+
 router.post("/", async (req, res) => {
-    const movie = await Movie.create(req.body);
+    const { title, image, releaseDate, rating, genreId } = req.body;
+    const movie = await Movie.create({
+        title,
+        image,
+        releaseDate,
+        rating,
+        genreId,
+    });
     res.status(201).json({
         status: "success",
         data: movie,
@@ -46,15 +71,17 @@ router.post("/", async (req, res) => {
 
 router.put("/:movieId", async (req, res) => {
     let movieId = req.params.movieId;
-    await Movie.update(req.body, {
-        where: { id: movieId },
-    });
+    const { title, image, releaseDate, rating, genreId } = req.body;
+    await Movie.update(
+        { title, image, releaseDate, rating, genreId },
+        { where: { id: movieId } }
+    );
     res.status(200).json({
         status: "success",
         data: await Movie.findOne({
             where: { id: movieId },
         }),
-        message: `Successfully updated resource with id ${movieId}`
+        message: `Successfully updated resource with id ${movieId}`,
     });
 });
 

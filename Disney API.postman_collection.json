@@ -1,0 +1,1862 @@
+{
+	"info": {
+		"_postman_id": "d95f3262-67e5-41e1-89a5-f6d793b2914c",
+		"name": "Disney API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Ivan",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "stacul@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "UFchamp123$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/auth/register",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Ivan",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "stacul@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "UFchamp123$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/auth/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "Ivan",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "stacul@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "UFchamp123$",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/auth/login",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "238"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ee-M5Fv5a83KI5QcEwRVFrKMr+U2dc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:28:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [],\n    \"message\": \"Login success\",\n    \"errors\": [],\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZWRBdCI6MTYzNTYyOTMzMiwiZXhwaXJlZEF0IjoxNjM1NjM0NzMyfQ.wJ7P1Aq63Q_qyVdakIR_EUbsTHjPou5V3Y1vKGa5Wgk\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "get characters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/characters",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ceni",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "16",
+									"disabled": true
+								},
+								{
+									"key": "weight",
+									"value": "60",
+									"disabled": true
+								},
+								{
+									"key": "movies",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get characters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/characters",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"characters"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "ceni",
+											"disabled": true
+										},
+										{
+											"key": "age",
+											"value": "16",
+											"disabled": true
+										},
+										{
+											"key": "weight",
+											"value": "60",
+											"disabled": true
+										},
+										{
+											"key": "movies",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-ZLP1Oi0tNAbqrpMcXUAfXIL828I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:21:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"Cenicienta\",\n            \"image\": \"cenicienta.jpg\"\n        },\n        {\n            \"name\": \"Cenicienta\",\n            \"image\": \"cenicienta.jpg\"\n        }\n    ],\n    \"message\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get character detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/characters/2/detail",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"characters",
+								"2",
+								"detail"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get character detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/characters/2/detail",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"characters",
+										"2",
+										"detail"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "339"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"153-YQ8s05GTBU/8FWrkTo1DN/j+K4Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:21:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Cenicienta\",\n        \"image\": \"cenicienta.jpg\",\n        \"age\": 16,\n        \"history\": null,\n        \"weight\": null,\n        \"createdAt\": \"2021-10-30T17:06:47.000Z\",\n        \"updatedAt\": \"2021-10-30T17:06:47.000Z\",\n        \"movies\": [\n            {\n                \"title\": \"La Cenicienta\",\n                \"image\": \"cenicienta.png\",\n                \"releaseDate\": \"1950-07-05\",\n                \"rating\": 5,\n                \"genre\": {\n                    \"name\": \"adventure\"\n                }\n            }\n        ]\n    },\n    \"message\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "set characters",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Cenicienta",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "cenicienta.jpg",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "movieId",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/characters",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "set characters",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Cenicienta",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "cenicienta.jpg",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "16",
+											"type": "text"
+										},
+										{
+											"key": "movieId",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/characters",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "212"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d4-wONUj35wLcipo4jwPr0tA/a8Q9E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:23:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 3,\n        \"image\": \"cenicienta.jpg\",\n        \"name\": \"Cenicienta\",\n        \"age\": \"16\",\n        \"updatedAt\": \"2021-10-30T21:23:15.817Z\",\n        \"createdAt\": \"2021-10-30T21:23:15.817Z\"\n    },\n    \"message\": \"Successfully created resource\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update characters",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Cenicienta",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "cenicienta.jpg",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "60.5",
+									"type": "text"
+								},
+								{
+									"key": "movieId",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/characters/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update characters",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Cenicienta",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "cenicienta.jpg",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "16",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "60.5",
+											"type": "text"
+										},
+										{
+											"key": "movieId",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/characters/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f9-Ke1ICTWVm96/FyZGk+Tka4l55WA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:25:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Cenicienta\",\n        \"image\": \"cenicienta.jpg\",\n        \"age\": 16,\n        \"history\": null,\n        \"weight\": 60.5,\n        \"createdAt\": \"2021-10-30T17:04:06.000Z\",\n        \"updatedAt\": \"2021-10-30T21:25:08.000Z\"\n    },\n    \"message\": \"Successfully updated resource with id 1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete characters",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/characters/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete characters",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/characters/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:25:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "get movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/movies",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "ceni",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get movies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "ceni",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "157"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9d-lZ6ccoaMIwu18izqYOyFG3sgK9U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:29:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\"\n    },\n    {\n        \"title\": \"The King Lion\",\n        \"image\": \"kiing_lion.png\",\n        \"releaseDate\": \"2019-06-19\"\n    }\n]"
+						},
+						{
+							"name": "get movies ordered",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies?order=desc",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "desc"
+										},
+										{
+											"key": "title",
+											"value": "ceni",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "373"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"175-hTmCwHDcWl2IG3Rnfcuf3DviicI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:29:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"title\": \"The King Lion\",\n        \"image\": \"kiing_lion.png\",\n        \"releaseDate\": \"2019-06-19\",\n        \"rating\": 4,\n        \"createdAt\": \"2021-10-30T20:36:27.000Z\",\n        \"updatedAt\": \"2021-10-30T20:36:27.000Z\",\n        \"genreId\": 1\n    },\n    {\n        \"id\": 1,\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\",\n        \"rating\": 5,\n        \"createdAt\": \"2021-10-30T17:05:25.000Z\",\n        \"updatedAt\": \"2021-10-30T20:36:38.000Z\",\n        \"genreId\": 2\n    }\n]"
+						},
+						{
+							"name": "get movies filtred by title",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies?title=ceni",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "ceni"
+										},
+										{
+											"key": "genre",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-V6uA+bvGY7O3eDTZCL6o2Y4+Cv4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:30:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\",\n        \"rating\": 5,\n        \"createdAt\": \"2021-10-30T17:05:25.000Z\",\n        \"updatedAt\": \"2021-10-30T20:36:38.000Z\",\n        \"genreId\": 2\n    }\n]"
+						},
+						{
+							"name": "get movies filtred by genre",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies?genre=1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "ceni",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-V6uA+bvGY7O3eDTZCL6o2Y4+Cv4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:30:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\",\n        \"rating\": 5,\n        \"createdAt\": \"2021-10-30T17:05:25.000Z\",\n        \"updatedAt\": \"2021-10-30T20:36:38.000Z\",\n        \"genreId\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get movies detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/movies/1/detail",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"movies",
+								"1",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "gerne",
+									"value": "sci-fi",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "ceniz",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get movies detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies/1/detail",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies",
+										"1",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "gerne",
+											"value": "sci-fi",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "ceniz",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "297"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"129-6ROQL4mA+RwLu7woM+3RqevzYZo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:31:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\",\n        \"rating\": 5,\n        \"createdAt\": \"2021-10-30T17:05:25.000Z\",\n        \"updatedAt\": \"2021-10-30T20:36:38.000Z\",\n        \"genreId\": 2,\n        \"characters\": [\n            {\n                \"name\": \"Cenicienta\",\n                \"age\": 16,\n                \"image\": \"cenicienta.jpg\"\n            }\n        ]\n    },\n    \"message\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "set movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "The King Lion",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2019-06-19",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "kiing_lion.png",
+									"type": "text"
+								},
+								{
+									"key": "genreId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/movies",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "set movie",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "The King Lion",
+											"type": "text"
+										},
+										{
+											"key": "releaseDate",
+											"value": "2019-06-19",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "kiing_lion.png",
+											"type": "text"
+										},
+										{
+											"key": "genreId",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-yvAdG6PIEuk0iUeFxNnk2YOEaDY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:33:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"The King Lion\",\n        \"image\": \"kiing_lion.png\",\n        \"releaseDate\": \"2019-06-19\",\n        \"rating\": \"4\",\n        \"genreId\": \"1\",\n        \"updatedAt\": \"2021-10-30T21:33:19.173Z\",\n        \"createdAt\": \"2021-10-30T21:33:19.173Z\"\n    },\n    \"message\": \"Successfully created resource\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "La Cenicienta",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "1950-07-05",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "cenicienta.png",
+									"type": "text"
+								},
+								{
+									"key": "genreId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/movies/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update movie",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "La Cenicienta",
+											"type": "text"
+										},
+										{
+											"key": "releaseDate",
+											"value": "1950-07-05",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "cenicienta.png",
+											"type": "text"
+										},
+										{
+											"key": "genreId",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-aeRfX72RQTgRwJCNWPRppr2IOzM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:33:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"La Cenicienta\",\n        \"image\": \"cenicienta.png\",\n        \"releaseDate\": \"1950-07-05\",\n        \"rating\": 5,\n        \"createdAt\": \"2021-10-30T17:05:25.000Z\",\n        \"updatedAt\": \"2021-10-30T21:33:48.000Z\",\n        \"genreId\": 1\n    },\n    \"message\": \"Successfully updated resource with id 1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/movies/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete movie",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/movies/4",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"movies",
+										"4"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:34:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "get all genres",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/genres",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all genres",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseurl}}/genres",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "359"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"167-6g3+uyZCmuC0c23zLKa1DI45kfM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:34:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"action\",\n        \"image\": \"action.jpg\",\n        \"createdAt\": \"2021-10-30T17:45:57.000Z\",\n        \"updatedAt\": \"2021-10-30T17:48:14.000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"adventure\",\n        \"image\": null,\n        \"createdAt\": \"2021-10-30T17:46:10.000Z\",\n        \"updatedAt\": \"2021-10-30T17:46:10.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"drama\",\n        \"image\": null,\n        \"createdAt\": \"2021-10-30T17:46:34.000Z\",\n        \"updatedAt\": \"2021-10-30T17:46:34.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "set genre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "animation",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/genres",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "set genre",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "animation",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/genres",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"af-HNI+dF8c5AHJF8MmGAzpi2ov5E4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:35:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"animation\",\n        \"updatedAt\": \"2021-10-30T21:35:12.346Z\",\n        \"createdAt\": \"2021-10-30T21:35:12.346Z\"\n    },\n    \"message\": \"Successfully created resource\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update genre",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "action",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "action.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/genres/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"genres",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete genre",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "action",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/genres/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"genres",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

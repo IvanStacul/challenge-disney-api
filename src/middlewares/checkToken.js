@@ -16,7 +16,7 @@ const checkToken = (req, res, next) => {
     try {
         payload = jwt.decode(userToken, process.env.SECRET_KEY);
     } catch (error) {
-        return res.json({
+        return res.status(401).json({
             errors: {
                 msg: "Incorrect Token." + error,
             },
@@ -24,7 +24,7 @@ const checkToken = (req, res, next) => {
     }
 
     if (payload.expiredAt < moment().unix()) {
-        return res.json({
+        return res.status(401).json({
             errors: {
                 msg: "Expired Token.",
             },
